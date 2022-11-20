@@ -1,6 +1,7 @@
-const noteModedl = require("../models/note");
+const noteModel = require("../models/note");
 
-const createNote =async (req,res) =>{
+const createNote = async (req, res) =>{
+    
     const {title, description} = req.body;
 
     const newNote = new noteModel({
@@ -18,9 +19,10 @@ const createNote =async (req,res) =>{
         console.log(error);
         res.status(500).json({message: "Something went wrong"});
     }
-};
+    
+}
 
-const updateNote = async (req,res) =>{
+const updateNote = async (req, res) =>{
     const id = req.params.id;
     const {title, description} = req.body;
 
@@ -39,9 +41,10 @@ const updateNote = async (req,res) =>{
         res.status(500).json({message: "Something went wrong"});
     }
 
-};
+}
 
-const deleteNote = async (req,res) =>{
+const deleteNote = async (req, res) =>{
+
     const id = req.params.id;
     try {
         
@@ -52,10 +55,9 @@ const deleteNote = async (req,res) =>{
         console.log(error);
         res.status(500).json({message: "Something went wrong"});
     }
+}
 
-};
-
-const getNotes = async (req,res) =>{
+const getNotes = async (req, res) =>{
     try {
         
         const notes = await noteModel.find({userId : req.userId});
@@ -65,9 +67,11 @@ const getNotes = async (req,res) =>{
         console.log(error);
         res.status(500).json({message: "Something went wrong"});
     }
-
-};
+}
 
 module.exports = {
-    createNote, updateNote,deleteNote,getNotes
-};
+    createNote,
+    updateNote,
+    deleteNote,
+    getNotes
+}

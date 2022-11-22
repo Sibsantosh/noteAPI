@@ -1,11 +1,12 @@
 const jwt = require("jsonwebtoken");
+const SECRET_KEY = "NOTEAPPKEY"
 
 const auth = (req,res,next) =>{
     try{
         let token = req.headers.authorization;
         if(token){
             token = token.split(" ")[1];
-            let user = jwt.verify(token,process.env.SECRET_KEY);
+            let user = jwt.verify(token,SECRET_KEY);
             req.userId = user.id;
 
 

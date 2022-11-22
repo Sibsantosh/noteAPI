@@ -1,7 +1,7 @@
 const userModel = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const SECRET_KEY = process.env.SECRET_KEY;
+const SECRET_KEY = "NOTEAPPKEY";
 
 const signup = async (req, res) =>{
 
@@ -26,7 +26,7 @@ const signup = async (req, res) =>{
         
     } catch (error) {
         console.log(error);
-        res.status(500).json({message: "Something went wrong"});
+        res.status(500).json({message: "Something went wrong  "+ error});
     }
 
 }

@@ -17,7 +17,7 @@ app.use("/users", userRouter);
 app.use("/note", noteRouter);
 
 app.get("/", (req, res) =>{
-    res.send("Notes API From BlezDev");
+    res.send("MongoBD API From Dev Sib");
 });
 
 const PORT = process.env.PORT || 5000;
